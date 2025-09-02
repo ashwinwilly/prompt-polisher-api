@@ -1,4 +1,6 @@
 // src/app/api/rewrite/route.ts
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 export const runtime = "edge";
 
 const FAST_MODEL   = process.env.FAST_MODEL   || "gpt-4.1-mini";
