@@ -7,63 +7,56 @@
   <link rel="stylesheet" href="popup.css" />
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <header class="header">
-        <div class="title">Prompt Polisher</div>
-        <div class="subtitle">Choose a rewrite depth & API endpoint</div>
-      </header>
+  <div class="card">
+    <header class="header">
+      <div class="title">Prompt Polisher</div>
+      <div class="subtitle">Choose your rewrite depth</div>
+    </header>
 
-      <section class="modes">
-        <label class="mode">
-          <input type="radio" name="mode" value="fast" />
-          <span class="pill">
-            <span class="emoji">⚡</span>
-            <span class="text">
-              <strong>Fast</strong>
-              <small>light polish, lowest latency</small>
-            </span>
+    <section class="modes">
+      <label class="mode">
+        <input type="radio" name="mode" value="fast" />
+        <span class="pill">
+          <span class="emoji">⚡</span>
+          <span class="text">
+            <strong>Fast</strong>
+            <small>light polish, lowest latency</small>
           </span>
-        </label>
-
-        <label class="mode">
-          <input type="radio" name="mode" value="medium" />
-          <span class="pill">
-            <span class="emoji">⚖️</span>
-            <span class="text">
-              <strong>Medium</strong>
-              <small>balanced structure & speed</small>
-            </span>
-          </span>
-        </label>
-
-        <label class="mode">
-          <input type="radio" name="mode" value="slow" />
-          <span class="pill">
-            <span class="emoji">🧠</span>
-            <span class="text">
-              <strong>Slow</strong>
-              <small>maximum prompt engineering</small>
-            </span>
-          </span>
-        </label>
-      </section>
-
-      <label class="field">
-        <div class="label">API Base URL</div>
-        <input id="apiUrl" type="text" placeholder="http://localhost:3000" />
+        </span>
       </label>
 
-      <button id="saveBtn" class="save-btn">
-        <span class="btn-text">Save</span>
-        <span class="spinner" aria-hidden="true"></span>
-      </button>
+      <label class="mode">
+        <input type="radio" name="mode" value="medium" />
+        <span class="pill">
+          <span class="emoji">⚖️</span>
+          <span class="text">
+            <strong>Medium</strong>
+            <small>balanced structure & speed</small>
+          </span>
+        </span>
+      </label>
 
-      <div id="savedToast" class="toast" role="status" aria-live="polite">Saved ✓</div>
-    </div>
+      <label class="mode">
+        <input type="radio" name="mode" value="slow" />
+        <span class="pill">
+          <span class="emoji">🧠</span>
+          <span class="text">
+            <strong>Slow</strong>
+            <small>maximum prompt engineering</small>
+          </span>
+        </span>
+      </label>
+    </section>
+
+    <button id="saveBtn" class="save-btn">
+      <span class="btn-text">Save</span>
+      <span class="spinner" aria-hidden="true"></span>
+    </button>
+
+    <div id="savedToast" class="toast" role="status" aria-live="polite">Saved ✓</div>
 
     <footer class="foot">
-      <span>Tip: Alt + P rewrites without sending.</span>
+      Tip: <kbd>Alt</kbd> + <kbd>P</kbd> rewrites without sending.
     </footer>
   </div>
 

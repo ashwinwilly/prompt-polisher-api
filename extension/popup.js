@@ -1,6 +1,5 @@
-// Keep keys in sync with background/content scripts
+// popup.js — save mode only
 const MODE_INPUTS = Array.from(document.querySelectorAll('input[name="mode"]'));
-const apiEl = document.getElementById("apiUrl");
 const saveBtn = document.getElementById("saveBtn");
 const toast = document.getElementById("savedToast");
 
@@ -10,25 +9,20 @@ function showToast() {
 }
 
 async function load() {
-  const defaults = { mode: "medium", apiBaseUrl: "http://localhost:3000" };
+  const defaults = { mode: "medium" };
   let stored = {};
   try {
-    stored = await chrome.storage.local.get(["mode", "apiBaseUrl"]);
+    stored = await chrome.storage.local.get(["mode"]);
   } catch {}
   const mode = stored.mode || defaults.mode;
-  const api = stored.apiBaseUrl || defaults.apiBaseUrl;
-
   MODE_INPUTS.forEach(r => (r.checked = r.value === mode));
-  apiEl.value = api;
 }
 
 async function save() {
   const selected = MODE_INPUTS.find(r => r.checked)?.value || "medium";
-  const apiBaseUrl = apiEl.value.trim() || "http://localhost:3000";
-
   saveBtn.classList.add("saving");
   try {
-    await chrome.storage.local.set({ mode: selected, apiBaseUrl });
+    await chrome.storage.local.set({ mode: selected });
     showToast();
   } catch (e) {
     console.error("[popup] save error:", e);

@@ -2,7 +2,7 @@
 
 const TAG = "[PP_BG]";
 const DEFAULTS = {
-  apiBaseUrl: "http://localhost:3000",
+  apiBaseUrl: "    prompt-polisher-api.vercel.app/api/rewrite",
   mode: "medium",
   budgets: { fast: 3000, medium: 7000, slow: 12000 }
 };
